@@ -205,13 +205,11 @@ modules:
       - -DFLATPAK_BUNDLE=YES
     sources:
       - type: archive
-        url: https://github.com/flacon/flacon/archive/v5.4.0.tar.gz
-        sha256: 000eacf4528906dfe0adc1c21aedcb57bf4300e56e37150173d3a23acc8fe19f
-        # Patch is already upstream and planned for v5.4.1, this is backported to facilitate a faster flatpak release
-      - type: patch
-        path: Issue-97.patch
+        url: https://github.com/flacon/flacon/archive/v5.5.1.tar.gz
+        sha256: bdeac2268536c790ede8928156c7a35019dd05ed1b16f04238394a238950d287
 
-  # Metadata addition upstream is asked for in issue: https://github.com/flacon/flacon/issues/101
+  # Metadata addition upstream had some trouble: https://github.com/flacon/flacon/issues/102
+  # We'll have to wait for a future release before we can use upstream metadata
   - name: metadata
     buildsystem: simple
     build-commands:
