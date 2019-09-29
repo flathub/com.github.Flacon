@@ -208,7 +208,8 @@ modules:
         url: https://github.com/flacon/flacon/archive/v5.5.1.tar.gz
         sha256: bdeac2268536c790ede8928156c7a35019dd05ed1b16f04238394a238950d287
 
-  # Metadata addition upstream is asked for in issue: https://github.com/flacon/flacon/issues/101
+  # Metadata addition upstream had some trouble: https://github.com/flacon/flacon/issues/102
+  # We'll have to wait for a future release before we can use upstream metadata
   - name: metadata
     buildsystem: simple
     build-commands:
