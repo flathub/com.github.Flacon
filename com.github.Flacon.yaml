@@ -1,6 +1,6 @@
 app-id: com.github.Flacon
 runtime: org.kde.Platform
-runtime-version: "5.13"
+runtime-version: "5.14"
 sdk: org.kde.Sdk
 command: flacon
 rename-desktop-file: flacon.desktop
@@ -11,10 +11,10 @@ finish-args:
   - --socket=x11
   - --share=ipc
   - --device=dri
-  
+
   # Required to load music metadata
   - --share=network
-  
+
   # Required for input-output
   # Flacon uses some advanced file scanning techniques
   # not compatible with portals
@@ -40,7 +40,6 @@ modules:
         url: http://deb.debian.org/debian/pool/non-free/f/faac/faac_1.29.9.2.orig.tar.gz
         sha256: d45f209d837c49dae6deebcdd87b8cc3b04ea290880358faecf5e7737740c771
 
-
   - name: flac
     buildsystem: autotools
     config-opts:
@@ -52,7 +51,6 @@ modules:
     cleanup:
       - /share/aclocal
 
-
   - name: libncurses
     buildsystem: autotools
     config-opts:
@@ -60,7 +58,7 @@ modules:
       - --without-tests
       - --without-progs
       - --without-sysmouse
-      - --disable-termcap    
+      - --disable-termcap
     sources:
     - type: archive
       url: http://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz
@@ -78,7 +76,6 @@ modules:
       - type:   archive
         url:    http://deb.debian.org/debian/pool/main/l/lame/lame_3.100.orig.tar.gz
         sha256: ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e
-
 
   - name: vorbis-tools
     buildsystem: autotools
@@ -124,7 +121,6 @@ modules:
       - type:   archive
         url:    http://deb.debian.org/debian/pool/main/s/sox/sox_14.4.2+git20190427.orig.tar.bz2
         sha256: 81a6956d4330e75b5827316e44ae381e6f1e8928003c6aa45896da9041ea149c
-
 
   - name: vorbisgain
     buildsystem: autotools
@@ -173,7 +169,7 @@ modules:
       - type:   archive
         url:    http://downloads.sourceforge.net/tta/ttaenc-3.4.1-src.tgz
         sha256: b2c9c8b015acc5864f082a0157f2e09c5117d1445321cb6178e925b448be3dc6
-  
+
   - name: mac
     buildsystem: autotools
     sources:
@@ -187,7 +183,6 @@ modules:
       - type:   patch
         path:   mac-patches/03_GCC-6.diff
 
-
   - name: libuchardet
     buildsystem: cmake
     config-opts:
@@ -198,10 +193,11 @@ modules:
         url: https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.6.tar.xz
         sha256: 8351328cdfbcb2432e63938721dd781eb8c11ebc56e3a89d0f84576b96002c61
 
-
   - name: flacon
     buildsystem: cmake
     config-opts:
+      # Removes certain features that make no sense within Flatpak, 
+      # like the option to select audio libraries
       - -DFLATPAK_BUNDLE=YES
     sources:
       - type: archive
