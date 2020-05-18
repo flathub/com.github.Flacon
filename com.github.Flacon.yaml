@@ -51,27 +51,14 @@ modules:
     cleanup:
       - /share/aclocal
 
-  - name: libncurses
-    buildsystem: autotools
-    config-opts:
-      - --without-ada
-      - --without-tests
-      - --without-progs
-      - --without-sysmouse
-      - --disable-termcap
-    sources:
-    - type: archive
-      url: http://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz
-      sha256: aa057eeeb4a14d470101eff4597d5833dcef5965331be3528c08d99cebaa0d17
-    cleanup:
-      - /bin/ncurses6-config
-
   - name: lame
     buildsystem: autotools
     config-opts:
       - --enable-nasm
       - --with-fileio=sndfile
       - --disable-static
+      # else we require ncurses ¯\_(ツ)_/¯
+      - --disable-frontend
     sources:
       - type:   archive
         url:    http://deb.debian.org/debian/pool/main/l/lame/lame_3.100.orig.tar.gz
@@ -83,7 +70,7 @@ modules:
       - type:   archive
         url:    http://deb.debian.org/debian/pool/main/v/vorbis-tools/vorbis-tools_1.4.0.orig.tar.gz
         sha256: a389395baa43f8e5a796c99daf62397e435a7e73531c9f44d9084055a05d22bc
-    cleanup:      
+    cleanup:
       - /bin/vorbiscomment
       - /bin/ogginfo
       - /bin/oggdec
@@ -91,15 +78,29 @@ modules:
       - /share/locale
       - /share/runtime
 
+  # Opus splits up their packages in three disctinct components: file,
+  # encoder and tools. They also officially host their files at Mozilla,
+  # whith mirrors on Github and others.
+  - name: opus-file
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://archive.mozilla.org/pub/opus/opusfile-0.11.tar.gz
+        sha256: 74ce9b6cf4da103133e7b5c95df810ceb7195471e1162ed57af415fabf5603bf
+
+  - name: opus-encoder
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://archive.mozilla.org/pub/opus/libopusenc-0.2.1.tar.gz
+        sha256: 8298db61a8d3d63e41c1a80705baa8ce9ff3f50452ea7ec1c19a564fe106cbb9
+
   - name: opus-tools
     buildsystem: autotools
     sources:
-      - type:   archive
-        url:    http://deb.debian.org/debian/pool/main/o/opus-tools/opus-tools_0.1.10.orig.tar.gz
-        sha256: 2400c3434ec923cea100043f86bc4181997377c6105c697195779391cc5e70c4
-    cleanup:
-      - /bin/opusinfo
-      - /bin/opusdec
+      - type: archive
+        url: https://archive.mozilla.org/pub/opus/opus-tools-0.2.tar.gz
+        sha256: b4e56cb00d3e509acfba9a9b627ffd8273b876b4e2408642259f6da28fa0ff86
 
   - name: sox
     buildsystem: autotools
@@ -129,13 +130,12 @@ modules:
         url:    http://deb.debian.org/debian/pool/main/v/vorbisgain/vorbisgain_0.37.orig.tar.gz
         sha256: dd6db051cad972bcac25d47b4a9e40e217bb548a1f16328eddbb4e66613530ec
 
-
   - name: wavpack
     buildsystem: autotools
     sources:
-      - type:   archive
-        url:    http://deb.debian.org/debian/pool/main/w/wavpack/wavpack_5.1.0.orig.tar.bz2
-        sha256: 1939627d5358d1da62bc6158d63f7ed12905552f3a799c799ee90296a7612944
+      - type: archive
+        url: http://www.wavpack.com/wavpack-5.3.0.tar.bz2
+        sha256: b6f00b3a2185a1d2df6cf8d893ec60fd645d2eb90db7428a617fd27c9e8a6a01
     cleanup:
       - /bin/wvtag
 
@@ -170,18 +170,18 @@ modules:
         url:    http://downloads.sourceforge.net/tta/ttaenc-3.4.1-src.tgz
         sha256: b2c9c8b015acc5864f082a0157f2e09c5117d1445321cb6178e925b448be3dc6
 
+  # Instruction taken from org.freac.freac.json
   - name: mac
-    buildsystem: autotools
+    buildsystem: simple
+    build-commands:
+      - make -f Source/Projects/NonWindows/Makefile prefix=/app all install
     sources:
-      - type:   archive
-        url:    https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/opensourceliving/mac-4.11-u4-b5-s7.tar.gz
-        sha256: 174cce02a2e122fc69cb6c72d13371c400c6f9427219ebbd4d5beff1d11cd4f6
-      - type:   patch
-        path:   mac-patches/01_output.patch
-      - type:   patch
-        path:   mac-patches/02_exec-stack.diff
-      - type:   patch
-        path:   mac-patches/03_GCC-6.diff
+      - type: archive
+        url: https://monkeysaudio.com/files/MAC_SDK_538d.zip
+        sha256: dab699501f5cc044f8937a369f91aec0a04e8b9f05576e299db4c1b9f8883c0a
+        strip-components: 0
+      - type: patch
+        path: ./mac-patches/mac-sdk-5.33-gcc.patch
 
   - name: libuchardet
     buildsystem: cmake
