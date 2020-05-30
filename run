@@ -1,0 +1,9 @@
+#!/bin/bash
+
+clear
+flatpak-builder --repo=testing-repo --force-clean build-dir com.github.Flacon.yaml
+flatpak --user remote-add --if-not-exists --no-gpg-verify flacon-testing-repo testing-repo
+flatpak --user install flacon-testing-repo com.github.Flacon -y
+flatpak --user install flacon-testing-repo com.github.Flacon.Debug -y
+flatpak update -y
+
