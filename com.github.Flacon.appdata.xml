@@ -9,7 +9,7 @@
   <project_license>LGPL-3.0</project_license>
 
   <developer_name>Flacon team</developer_name>
-  <update_contact>gnome@kevindegeling.nl</update_contact>
+  <update_contact>eonfge@kevindegeling.nl</update_contact>
 
   <url type="homepage">https://flacon.github.io/</url>
   <url type="bugtracker">https://github.com/flacon/flacon</url>
@@ -23,9 +23,10 @@
     </p>
     <ul>
       <li>Supported input formats: WAV, FLAC, APE, WavPack, True Audio (TTA)</li>
-      <li>Supported out formats: FLAC, WAV, WavPack, AAC, OGG or MP3.</li>
+      <li>Supported output formats: FLAC, WAV, WavPack, AAC, OGG or MP3</li>
+      <li>Support of profiles, you can have different encoding options for different cases, such as maximum quality for your computer, and CD quality for your phone.</li>
       <li>Replay Gain analysis (album-gain and track-gain modes)</li>
-      <li>Multi-threaded conversion process.</li>
+      <li>Multi-threaded conversion process</li>
       <li>Automatic character set detection for CUE files</li>
       <li>Generation of the pertrack CUE file in the output dir</li>
     </ul>
