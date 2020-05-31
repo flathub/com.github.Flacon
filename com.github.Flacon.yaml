@@ -3,8 +3,10 @@ runtime: org.kde.Platform
 runtime-version: "5.14"
 sdk: org.kde.Sdk
 command: flacon
+
 rename-desktop-file: flacon.desktop
 rename-icon: flacon
+
 finish-args:
   - --socket=wayland
   - --socket=fallback-x11
@@ -187,24 +189,20 @@ modules:
   - name: flacon
     buildsystem: cmake
     config-opts:
-      # Removes certain features that make no sense within Flatpak, 
+      # Removes certain features that make no sense within Flatpak,
       # like the option to select audio libraries
       - -DFLATPAK_BUNDLE=YES
     sources:
       - type: archive
         url: https://github.com/flacon/flacon/archive/v6.0.0.tar.gz
         sha256: 3c073ad29cc91601b9ecd66058b644ed2b1c12f3c0a96cbaa9e0167baf7acf75
-    post-install:
-      # Related to this topic: https://discourse.flathub.org/t/a-128x128-icon-is-required-now/386/2
-      - install -Dm 644 ./images/mainicon/flacon-64x64.png /app/share/app-info/icons/flatpak/64x64/com.github.Flacon.png
-      - install -Dm 644 ./images/mainicon/flacon-128x128.png /app/share/app-info/icons/flatpak/128x128/com.github.Flacon.png
 
   # Metadata addition upstream had some trouble: https://github.com/flacon/flacon/issues/102
   # We'll have to wait for a future release before we can use upstream metadata
   - name: metadata
     buildsystem: simple
     build-commands:
-      - install -Dm 644 com.github.Flacon.appdata.xml -t /app/share/metainfo/
+      - install -Dm 644 com.github.Flacon.metainfo.xml -t /app/share/metainfo/
     sources:
       - type: file
-        path: com.github.Flacon.appdata.xml
+        path: com.github.Flacon.metainfo.xml
