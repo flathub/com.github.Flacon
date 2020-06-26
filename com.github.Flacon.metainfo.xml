@@ -40,11 +40,12 @@
   </screenshots>
 
   <releases>
-    <release version="6.0.0" date="2020-05-30">
+    <release version="6.1.0" date="2020-06-26">
       <description>
         <p>Latest version of Flacon on Flathub.</p>
       </description>
     </release>
+    <release version="6.0.0" date="2020-05-30"/>
     <release version="5.5.1" date="2019-09-28"/>
     <release version="5.5.0" date="2019-09-28"/>
     <release version="5.4.0" date="2019-09-26"/>

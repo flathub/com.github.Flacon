@@ -164,17 +164,18 @@ modules:
         sha256: b2c9c8b015acc5864f082a0157f2e09c5117d1445321cb6178e925b448be3dc6
 
   # Instruction taken from org.freac.freac.json
+  # Don't use the official mirror, it's unreliable
   - name: mac
     buildsystem: simple
     build-commands:
       - make -f Source/Projects/NonWindows/Makefile prefix=/app all install
     sources:
       - type: archive
-        url: https://monkeysaudio.com/files/MAC_SDK_538d.zip
-        sha256: dab699501f5cc044f8937a369f91aec0a04e8b9f05576e299db4c1b9f8883c0a
+        url: https://freac.org/patches/MAC_SDK_544.zip
+        sha256: d5d2c2de4f64c61bc98c59a8691e47a6e2bb1beb3a3ae50d98bb0fdfdb91e480
         strip-components: 0
       - type: patch
-        path: ./mac-patches/mac-sdk-5.33-gcc.patch
+        path: ./mac-patches/mac-sdk-5.44-gcc.patch
 
   - name: libuchardet
     buildsystem: cmake
@@ -194,8 +195,8 @@ modules:
       - -DFLATPAK_BUNDLE=YES
     sources:
       - type: archive
-        url: https://github.com/flacon/flacon/archive/v6.0.0.tar.gz
-        sha256: 3c073ad29cc91601b9ecd66058b644ed2b1c12f3c0a96cbaa9e0167baf7acf75
+        url: https://github.com/flacon/flacon/archive/v6.1.0.tar.gz
+        sha256: b6af83ed30697ed82369d3eefaf8fcceabea69fc86a1d6d1a5594cc5768bad7b
 
   # Metadata addition upstream had some trouble: https://github.com/flacon/flacon/issues/102
   # We'll have to wait for a future release before we can use upstream metadata
