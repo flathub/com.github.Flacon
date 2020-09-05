@@ -41,14 +41,14 @@ modules:
     buildsystem: autotools
     sources:
       - type: archive
-        url: http://deb.debian.org/debian/pool/non-free/f/faac/faac_1.29.9.2.orig.tar.gz
+        url: https://sourceforge.net/projects/faac/files/faac-src/faac-1.29/faac-1.29.9.2.tar.gz
         sha256: d45f209d837c49dae6deebcdd87b8cc3b04ea290880358faecf5e7737740c771
 
   - name: vorbis-tools
     buildsystem: autotools
     sources:
       - type:   archive
-        url:    http://deb.debian.org/debian/pool/main/v/vorbis-tools/vorbis-tools_1.4.0.orig.tar.gz
+        url:    https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz
         sha256: a389395baa43f8e5a796c99daf62397e435a7e73531c9f44d9084055a05d22bc
     cleanup:
       - /bin/vorbiscomment
@@ -100,14 +100,15 @@ modules:
       - --with-wavpack=yes
     sources:
       - type:   archive
-        url:    http://deb.debian.org/debian/pool/main/s/sox/sox_14.4.2+git20190427.orig.tar.bz2
+        url:    https://sourceforge.net/projects/sox/files/sox/14.4.2/sox-14.4.2.tar.bz2
         sha256: 81a6956d4330e75b5827316e44ae381e6f1e8928003c6aa45896da9041ea149c
 
+  # Official source only provides 0.34 and 0.36
   - name: vorbisgain
     buildsystem: autotools
     sources:
-      - type:   archive
-        url:    http://deb.debian.org/debian/pool/main/v/vorbisgain/vorbisgain_0.37.orig.tar.gz
+      - type: archive
+        url: http://deb.debian.org/debian/pool/main/v/vorbisgain/vorbisgain_0.37.orig.tar.gz
         sha256: dd6db051cad972bcac25d47b4a9e40e217bb548a1f16328eddbb4e66613530ec
 
   - name: mpg123
@@ -115,8 +116,8 @@ modules:
     config-opts:
       - --disable-static
     sources:
-      - type:   archive
-        url:    http://deb.debian.org/debian/pool/main/m/mpg123/mpg123_1.25.10.orig.tar.bz2
+      - type: archive
+        url: https://sourceforge.net/projects/mpg123/files/mpg123/1.25.10/mpg123-1.25.10.tar.bz2
         sha256: 6c1337aee2e4bf993299851c70b7db11faec785303cfca3a5c3eb5f329ba7023
     cleanup:
       - /bin
@@ -137,8 +138,8 @@ modules:
       - make 
       - install -m 755 ttaenc /app/bin
     sources:
-      - type:   archive
-        url:    http://downloads.sourceforge.net/tta/ttaenc-3.4.1-src.tgz
+      - type: archive
+        url: https://sourceforge.net/projects/tta/files/tta/ttaenc-src/ttaenc-3.4.1-src.tgz
         sha256: b2c9c8b015acc5864f082a0157f2e09c5117d1445321cb6178e925b448be3dc6
 
   - shared-modules/mac/mac.json
