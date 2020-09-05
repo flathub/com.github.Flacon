@@ -1,6 +1,6 @@
 app-id: com.github.Flacon
 runtime: org.kde.Platform
-runtime-version: "5.14"
+runtime-version: "5.15"
 sdk: org.kde.Sdk
 command: flacon
 
@@ -41,25 +41,14 @@ modules:
     buildsystem: autotools
     sources:
       - type: archive
-        url: http://deb.debian.org/debian/pool/non-free/f/faac/faac_1.29.9.2.orig.tar.gz
+        url: https://sourceforge.net/projects/faac/files/faac-src/faac-1.29/faac-1.29.9.2.tar.gz
         sha256: d45f209d837c49dae6deebcdd87b8cc3b04ea290880358faecf5e7737740c771
-
-  - name: flac
-    buildsystem: autotools
-    config-opts:
-      - -disable-xmms-plugin
-    sources:
-      - type: archive
-        url: http://deb.debian.org/debian/pool/main/f/flac/flac_1.3.3.orig.tar.xz
-        sha256: 213e82bd716c9de6db2f98bcadbc4c24c7e2efe8c75939a1a84e28539c4e1748
-    cleanup:
-      - /share/aclocal
 
   - name: vorbis-tools
     buildsystem: autotools
     sources:
       - type:   archive
-        url:    http://deb.debian.org/debian/pool/main/v/vorbis-tools/vorbis-tools_1.4.0.orig.tar.gz
+        url:    https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz
         sha256: a389395baa43f8e5a796c99daf62397e435a7e73531c9f44d9084055a05d22bc
     cleanup:
       - /bin/vorbiscomment
@@ -111,37 +100,16 @@ modules:
       - --with-wavpack=yes
     sources:
       - type:   archive
-        url:    http://deb.debian.org/debian/pool/main/s/sox/sox_14.4.2+git20190427.orig.tar.bz2
+        url:    https://sourceforge.net/projects/sox/files/sox/14.4.2/sox-14.4.2.tar.bz2
         sha256: 81a6956d4330e75b5827316e44ae381e6f1e8928003c6aa45896da9041ea149c
 
+  # Official source only provides 0.34 and 0.36
   - name: vorbisgain
     buildsystem: autotools
     sources:
-      - type:   archive
-        url:    http://deb.debian.org/debian/pool/main/v/vorbisgain/vorbisgain_0.37.orig.tar.gz
-        sha256: dd6db051cad972bcac25d47b4a9e40e217bb548a1f16328eddbb4e66613530ec
-
-  # Runtime 19.08 contains 5.1.0, runtime master contains 5.2, latest is 5.3
-  # https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/issues/1045
-  - name: wavpack
-    buildsystem: autotools
-    sources:
       - type: archive
-        url: http://www.wavpack.com/wavpack-5.3.0.tar.bz2
-        sha256: b6f00b3a2185a1d2df6cf8d893ec60fd645d2eb90db7428a617fd27c9e8a6a01
-    cleanup:
-      - /bin/wvtag
-
-  - name: mpg123
-    buildsystem: autotools
-    config-opts:
-      - --disable-static
-    sources:
-      - type:   archive
-        url:    http://deb.debian.org/debian/pool/main/m/mpg123/mpg123_1.25.10.orig.tar.bz2
-        sha256: 6c1337aee2e4bf993299851c70b7db11faec785303cfca3a5c3eb5f329ba7023
-    cleanup:
-      - /bin
+        url: http://deb.debian.org/debian/pool/main/v/vorbisgain/vorbisgain_0.37.orig.tar.gz
+        sha256: dd6db051cad972bcac25d47b4a9e40e217bb548a1f16328eddbb4e66613530ec
 
   - name: mp3gain
     buildsystem: simple
@@ -159,23 +127,11 @@ modules:
       - make 
       - install -m 755 ttaenc /app/bin
     sources:
-      - type:   archive
-        url:    http://downloads.sourceforge.net/tta/ttaenc-3.4.1-src.tgz
+      - type: archive
+        url: https://sourceforge.net/projects/tta/files/tta/ttaenc-src/ttaenc-3.4.1-src.tgz
         sha256: b2c9c8b015acc5864f082a0157f2e09c5117d1445321cb6178e925b448be3dc6
 
-  # Instruction taken from org.freac.freac.json
-  # Don't use the official mirror, it's unreliable
-  - name: mac
-    buildsystem: simple
-    build-commands:
-      - make -f Source/Projects/NonWindows/Makefile prefix=/app all install
-    sources:
-      - type: archive
-        url: https://freac.org/patches/MAC_SDK_544.zip
-        sha256: d5d2c2de4f64c61bc98c59a8691e47a6e2bb1beb3a3ae50d98bb0fdfdb91e480
-        strip-components: 0
-      - type: patch
-        path: ./mac-patches/mac-sdk-5.44-gcc.patch
+  - shared-modules/mac/mac.json
 
   - name: libuchardet
     buildsystem: cmake
@@ -184,8 +140,8 @@ modules:
       - -DBUILD_STATIC=NO
     sources:
       - type: archive
-        url: https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.6.tar.xz
-        sha256: 8351328cdfbcb2432e63938721dd781eb8c11ebc56e3a89d0f84576b96002c61
+        url: https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.7.tar.xz
+        sha256: 3fc79408ae1d84b406922fa9319ce005631c95ca0f34b205fad867e8b30e45b1
 
   - name: flacon
     buildsystem: cmake
