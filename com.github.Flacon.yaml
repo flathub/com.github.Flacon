@@ -130,7 +130,11 @@ modules:
   - name: ttaenc
     buildsystem: simple
     build-commands:
-      - make 
+      - |
+        if [ "$FLATPAK_ARCH" = "aarch64" ]; then
+          $(sed -i 's/-msse//g' ./Makefile)
+        fi
+      - make
       - install -m 755 ttaenc /app/bin
     sources:
       - type: archive
