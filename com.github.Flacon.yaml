@@ -111,17 +111,6 @@ modules:
         url: http://deb.debian.org/debian/pool/main/v/vorbisgain/vorbisgain_0.37.orig.tar.gz
         sha256: dd6db051cad972bcac25d47b4a9e40e217bb548a1f16328eddbb4e66613530ec
 
-  - name: mpg123
-    buildsystem: autotools
-    config-opts:
-      - --disable-static
-    sources:
-      - type: archive
-        url: https://sourceforge.net/projects/mpg123/files/mpg123/1.25.10/mpg123-1.25.10.tar.bz2
-        sha256: 6c1337aee2e4bf993299851c70b7db11faec785303cfca3a5c3eb5f329ba7023
-    cleanup:
-      - /bin
-
   - name: mp3gain
     buildsystem: simple
     build-commands:
@@ -151,8 +140,8 @@ modules:
       - -DBUILD_STATIC=NO
     sources:
       - type: archive
-        url: https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.6.tar.xz
-        sha256: 8351328cdfbcb2432e63938721dd781eb8c11ebc56e3a89d0f84576b96002c61
+        url: https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.7.tar.xz
+        sha256: 3fc79408ae1d84b406922fa9319ce005631c95ca0f34b205fad867e8b30e45b1
 
   - name: flacon
     buildsystem: cmake
