@@ -44,18 +44,18 @@ modules:
         url: https://sourceforge.net/projects/faac/files/faac-src/faac-1.29/faac-1.29.9.2.tar.gz
         sha256: d45f209d837c49dae6deebcdd87b8cc3b04ea290880358faecf5e7737740c771
 
+  # The config.guess patches are required because the latest version of the
   # vorbis-tools is from 2008, long before aarch64 existed.
   # https://github.com/xiph/vorbis-tools/issues/22
   - name: vorbis-tools
     buildsystem: autotools
     sources:
-      - type:   archive
-        url:    https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz
+      - type: archive
+        url: https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz
         sha256: a389395baa43f8e5a796c99daf62397e435a7e73531c9f44d9084055a05d22bc
-      - type: file
-        path: ./config-patches/config.guess
-      - type: file
-        path: ./config-patches/config.sub
+      - type: shell
+        commands:
+          - cp -p /usr/share/automake-*/config.{sub,guess} .
     cleanup:
       - /bin/vorbiscomment
       - /bin/ogginfo
@@ -63,6 +63,7 @@ modules:
       - /bin/vcut
       - /share/locale
       - /share/runtime
+
 
   # Opus splits up their packages in three disctinct components: file,
   # encoder and tools. They also officially host their files at Mozilla,
@@ -105,8 +106,8 @@ modules:
       - --with-sndfile=no
       - --with-wavpack=yes
     sources:
-      - type:   archive
-        url:    https://sourceforge.net/projects/sox/files/sox/14.4.2/sox-14.4.2.tar.bz2
+      - type: archive
+        url: https://sourceforge.net/projects/sox/files/sox/14.4.2/sox-14.4.2.tar.bz2
         sha256: 81a6956d4330e75b5827316e44ae381e6f1e8928003c6aa45896da9041ea149c
 
   # Official source only provides 0.34 and 0.36
@@ -123,8 +124,8 @@ modules:
       - make OSTYPE=linux
       - install -m 755 mp3gain /app/bin
     sources:
-      - type:   archive
-        url:    http://downloads.sourceforge.net/mp3gain/mp3gain-1_6_2-src.zip
+      - type: archive
+        url: http://downloads.sourceforge.net/mp3gain/mp3gain-1_6_2-src.zip
         sha256: 5cc04732ef32850d5878b28fbd8b85798d979a025990654aceeaa379bcc9596d
 
   - name: ttaenc
