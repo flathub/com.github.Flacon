@@ -44,18 +44,12 @@ modules:
         url: https://sourceforge.net/projects/faac/files/faac-src/faac-1.30/faac-1_30.tar.gz
         sha256: adc387ce588cca16d98c03b6ec1e58f0ffd9fc6eadb00e254157d6b16203b2d2
 
-  # The config.guess patches are required because the latest version of the
-  # vorbis-tools is from 2008, long before aarch64 existed.
-  # https://github.com/xiph/vorbis-tools/issues/22
   - name: vorbis-tools
     buildsystem: autotools
     sources:
       - type: archive
         url: https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz
         sha256: db7774ec2bf2c939b139452183669be84fda5774d6400fc57fde37f77624f0b0
-      - type: shell
-        commands:
-          - cp -p /usr/share/automake-*/config.{sub,guess} .
     cleanup:
       - /bin/vorbiscomment
       - /bin/ogginfo
