@@ -41,8 +41,8 @@ modules:
     buildsystem: autotools
     sources:
       - type: archive
-        url: https://sourceforge.net/projects/faac/files/faac-src/faac-1.29/faac-1.29.9.2.tar.gz
-        sha256: d45f209d837c49dae6deebcdd87b8cc3b04ea290880358faecf5e7737740c771
+        url: https://sourceforge.net/projects/faac/files/faac-src/faac-1.30/faac-1_30.tar.gz
+        sha256: adc387ce588cca16d98c03b6ec1e58f0ffd9fc6eadb00e254157d6b16203b2d2
 
   # The config.guess patches are required because the latest version of the
   # vorbis-tools is from 2008, long before aarch64 existed.
@@ -51,8 +51,8 @@ modules:
     buildsystem: autotools
     sources:
       - type: archive
-        url: https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz
-        sha256: a389395baa43f8e5a796c99daf62397e435a7e73531c9f44d9084055a05d22bc
+        url: https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz
+        sha256: db7774ec2bf2c939b139452183669be84fda5774d6400fc57fde37f77624f0b0
       - type: shell
         commands:
           - cp -p /usr/share/automake-*/config.{sub,guess} .
@@ -72,8 +72,8 @@ modules:
     buildsystem: autotools
     sources:
       - type: archive
-        url: https://archive.mozilla.org/pub/opus/opusfile-0.11.tar.gz
-        sha256: 74ce9b6cf4da103133e7b5c95df810ceb7195471e1162ed57af415fabf5603bf
+        url: https://downloads.xiph.org/releases/opus/opusfile-0.12.tar.gz
+        sha256: 118d8601c12dd6a44f52423e68ca9083cc9f2bfe72da7a8c1acb22a80ae3550b
 
   - name: opus-encoder
     buildsystem: autotools
@@ -162,8 +162,8 @@ modules:
       - -DFLATPAK_BUNDLE=YES
     sources:
       - type: archive
-        url: https://github.com/flacon/flacon/archive/v6.1.0.tar.gz
-        sha256: b6af83ed30697ed82369d3eefaf8fcceabea69fc86a1d6d1a5594cc5768bad7b
+        url: https://github.com/flacon/flacon/archive/v7.0.0.tar.gz
+        sha256: 8d9c350fdd5d790c83192db584500a6237ffc486910ff591d2dceddac7e61517
 
   # Metadata addition upstream had some trouble: https://github.com/flacon/flacon/issues/102
   # We'll have to wait for a future release before we can use upstream metadata
