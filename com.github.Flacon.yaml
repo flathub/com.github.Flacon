@@ -156,15 +156,6 @@ modules:
       - -DFLATPAK_BUNDLE=YES
     sources:
       - type: archive
-        url: https://github.com/flacon/flacon/archive/v7.0.0.tar.gz
-        sha256: 8d9c350fdd5d790c83192db584500a6237ffc486910ff591d2dceddac7e61517
+        url: https://github.com/flacon/flacon/archive/v7.0.1.tar.gz
+        sha256: f63b959099e7b97b02a7f9ccf2c922a99de6c0d1ec83e74c436fd10e41630b6e
 
-  # Metadata addition upstream had some trouble: https://github.com/flacon/flacon/issues/102
-  # We'll have to wait for a future release before we can use upstream metadata
-  - name: metadata
-    buildsystem: simple
-    build-commands:
-      - install -Dm 644 com.github.Flacon.metainfo.xml -t /app/share/metainfo/
-    sources:
-      - type: file
-        path: com.github.Flacon.metainfo.xml
