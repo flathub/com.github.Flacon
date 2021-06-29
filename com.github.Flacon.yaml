@@ -10,7 +10,6 @@ rename-icon: flacon
 finish-args:
   - --socket=wayland
   - --socket=fallback-x11
-  - --socket=x11
   - --share=ipc
   - --device=dri
 
@@ -43,6 +42,10 @@ modules:
       - type: archive
         url: https://sourceforge.net/projects/faac/files/faac-src/faac-1.30/faac-1_30.tar.gz
         sha256: adc387ce588cca16d98c03b6ec1e58f0ffd9fc6eadb00e254157d6b16203b2d2
+        x-checker-data:
+          type: anitya
+          project-id: 13754
+          url-template: https://sourceforge.net/projects/faac/files/faac-src/faac-$version/faac-$version.tar.gz
 
   - name: vorbis-tools
     buildsystem: autotools
@@ -50,6 +53,10 @@ modules:
       - type: archive
         url: https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz
         sha256: db7774ec2bf2c939b139452183669be84fda5774d6400fc57fde37f77624f0b0
+        x-checker-data:
+          type: anitya
+          project-id: 5104
+          url-template: https://downloads.xiph.org/releases/vorbis/vorbis-tools-$version.tar.gz
     cleanup:
       - /bin/vorbiscomment
       - /bin/ogginfo
@@ -68,6 +75,10 @@ modules:
       - type: archive
         url: https://downloads.xiph.org/releases/opus/opusfile-0.12.tar.gz
         sha256: 118d8601c12dd6a44f52423e68ca9083cc9f2bfe72da7a8c1acb22a80ae3550b
+        x-checker-data:
+          type: anitya
+          project-id: 10353
+          url-template: https://downloads.xiph.org/releases/opus/opusfile-$version.tar.gz
 
   - name: opus-encoder
     buildsystem: autotools
@@ -75,6 +86,10 @@ modules:
       - type: archive
         url: https://archive.mozilla.org/pub/opus/libopusenc-0.2.1.tar.gz
         sha256: 8298db61a8d3d63e41c1a80705baa8ce9ff3f50452ea7ec1c19a564fe106cbb9
+        x-checker-data:
+          type: anitya
+          project-id: 17877
+          url-template: https://archive.mozilla.org/pub/opus/libopusenc-$version.tar.gz
 
   - name: opus-tools
     buildsystem: autotools
@@ -82,6 +97,10 @@ modules:
       - type: archive
         url: https://archive.mozilla.org/pub/opus/opus-tools-0.2.tar.gz
         sha256: b4e56cb00d3e509acfba9a9b627ffd8273b876b4e2408642259f6da28fa0ff86
+        x-checker-data:
+          type: anitya
+          project-id: 7905
+          url-template: https://archive.mozilla.org/pub/opus/opus-tools-$version.tar.gz
 
   - name: sox
     buildsystem: autotools
@@ -103,6 +122,10 @@ modules:
       - type: archive
         url: https://sourceforge.net/projects/sox/files/sox/14.4.2/sox-14.4.2.tar.bz2
         sha256: 81a6956d4330e75b5827316e44ae381e6f1e8928003c6aa45896da9041ea149c
+        x-checker-data:
+          type: anitya
+          project-id: 4858
+          url-template: https://sourceforge.net/projects/sox/files/sox/$version/sox-$version.tar.bz2
 
   # Official source only provides 0.34 and 0.36
   - name: vorbisgain
@@ -121,6 +144,10 @@ modules:
       - type: archive
         url: http://downloads.sourceforge.net/mp3gain/mp3gain-1_6_2-src.zip
         sha256: 5cc04732ef32850d5878b28fbd8b85798d979a025990654aceeaa379bcc9596d
+        x-checker-data:
+          type: anitya
+          project-id: 12077
+          url-template: http://downloads.sourceforge.net/mp3gain/mp3gain-$version-src.zip
 
   - name: ttaenc
     buildsystem: simple
@@ -138,7 +165,7 @@ modules:
 
   - shared-modules/mac/mac.json
 
-  - name: libuchardet
+  - name: uchardet
     buildsystem: cmake
     config-opts:
       - -DBUILD_BINARY=NO
@@ -147,6 +174,10 @@ modules:
       - type: archive
         url: https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.7.tar.xz
         sha256: 3fc79408ae1d84b406922fa9319ce005631c95ca0f34b205fad867e8b30e45b1
+        x-checker-data:
+          type: anitya
+          project-id: 9265
+          url-template: https://www.freedesktop.org/software/uchardet/releases/uchardet-$version.tar.xz
 
   - name: flacon
     buildsystem: cmake
@@ -158,4 +189,8 @@ modules:
       - type: archive
         url: https://github.com/flacon/flacon/archive/v7.0.1.tar.gz
         sha256: f63b959099e7b97b02a7f9ccf2c922a99de6c0d1ec83e74c436fd10e41630b6e
+        x-checker-data:
+          type: anitya
+          project-id: 8408
+          url-template: https://github.com/flacon/flacon/archive/v$version.tar.gz
 
