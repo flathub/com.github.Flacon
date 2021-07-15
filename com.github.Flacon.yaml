@@ -1,6 +1,6 @@
 app-id: com.github.Flacon
 runtime: org.kde.Platform
-runtime-version: "5.15"
+runtime-version: '5.15'
 sdk: org.kde.Sdk
 command: flacon
 
@@ -40,8 +40,8 @@ modules:
     buildsystem: autotools
     sources:
       - type: archive
-        url: https://sourceforge.net/projects/faac/files/faac-src/faac-1.30/faac-1_30.tar.gz
-        sha256: adc387ce588cca16d98c03b6ec1e58f0ffd9fc6eadb00e254157d6b16203b2d2
+        url: https://sourceforge.net/projects/faac/files/faac-src/faac-1.30/faac-1.30.tar.gz
+        sha256: 251a85b3bac687974f360d3796048c20ded3bf0bd69e0d1cfd1db23d013f89ed
         x-checker-data:
           type: anitya
           project-id: 13754
@@ -121,7 +121,7 @@ modules:
     sources:
       - type: archive
         url: https://sourceforge.net/projects/sox/files/sox/14.4.2/sox-14.4.2.tar.bz2
-        sha256: 81a6956d4330e75b5827316e44ae381e6f1e8928003c6aa45896da9041ea149c
+        sha256: 251a85b3bac687974f360d3796048c20ded3bf0bd69e0d1cfd1db23d013f89ed
         x-checker-data:
           type: anitya
           project-id: 4858
@@ -143,7 +143,7 @@ modules:
     sources:
       - type: archive
         url: http://downloads.sourceforge.net/mp3gain/mp3gain-1_6_2-src.zip
-        sha256: 5cc04732ef32850d5878b28fbd8b85798d979a025990654aceeaa379bcc9596d
+        sha256: 251a85b3bac687974f360d3796048c20ded3bf0bd69e0d1cfd1db23d013f89ed
         x-checker-data:
           type: anitya
           project-id: 12077
