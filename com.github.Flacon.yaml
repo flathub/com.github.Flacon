@@ -16,11 +16,13 @@ finish-args:
   # Required to load music metadata
   - --share=network
 
-  # Required for input-output
-  # Flacon uses some advanced file scanning techniques
-  # not compatible with portals
-  - --filesystem=xdg-download
-  - --filesystem=xdg-music
+  # Requested by upstream
+  # Flacon uses some advanced file scanning techniques not compatible with portals
+  # https://github.com/flathub/com.github.Flacon/pull/20#issue-773657177
+  - --filesystem=home
+  - --filesystem=xdg-run/gvfs
+  - --filesystem=xdg-run/gvfsd
+
   - --env=TMPDIR=/var/tmp
 
 cleanup:
