@@ -19,8 +19,7 @@ finish-args:
   # Required for input-output
   # Flacon uses some advanced file scanning techniques
   # not compatible with portals
-  - --filesystem=xdg-download
-  - --filesystem=xdg-music
+  - --filesystem=home
   - --env=TMPDIR=/var/tmp
 
 cleanup:
