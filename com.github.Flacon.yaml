@@ -165,6 +165,17 @@ modules:
 
   - shared-modules/mac/mac.json
 
+  - name: taglib
+    buildsystem: cmake
+    sources:
+      - type: archive
+        url: https://taglib.org/releases/taglib-1.12.tar.gz
+        sha256: 7fccd07669a523b07a15bd24c8da1bbb92206cb19e9366c3692af3d79253b703
+        x-checker-data:
+          type: anitya
+          project-id: 1982
+          url-template: https://taglib.org/releases/taglib-$version.tar.gz
+
   - name: uchardet
     buildsystem: cmake
     config-opts:
