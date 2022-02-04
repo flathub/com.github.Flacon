@@ -129,13 +129,7 @@ modules:
           project-id: 4858
           url-template: https://sourceforge.net/projects/sox/files/sox/$version/sox-$version.tar.bz2
 
-  # Official source only provides 0.34 and 0.36
-  - name: vorbisgain
-    buildsystem: autotools
-    sources:
-      - type: archive
-        url: http://deb.debian.org/debian/pool/main/v/vorbisgain/vorbisgain_0.37.orig.tar.gz
-        sha256: dd6db051cad972bcac25d47b4a9e40e217bb548a1f16328eddbb4e66613530ec
+  - shared-modules/vorbisgain/vorbisgain_0.37-2.json
 
   - name: mp3gain
     buildsystem: simple
