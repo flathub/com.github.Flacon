@@ -40,8 +40,8 @@ modules:
     buildsystem: cmake
     sources:
       - type: archive
-        url: https://github.com/flacon/alacenc/archive/v0.2.0.tar.gz
-        sha256: 34d4be0b0d3ae49f36e19c92ebf7d6e5d30b79a4d5c688b967b2f3011795c621
+        url: https://github.com/flacon/alacenc/archive/v0.3.0.tar.gz
+        sha256: 199c0e3524942d7c2934896f3fc4d2fa1390db701a4f08975b792ada34934a39
 
   # Issue has been submitted upstream to replace faac with fdk-aac
   # https://github.com/flacon/flacon/issues/117
