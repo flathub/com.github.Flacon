@@ -39,9 +39,13 @@ modules:
   - name: alacenc
     buildsystem: cmake
     sources:
-      - type: archive
-        url: https://github.com/flacon/alacenc/archive/v0.3.0.tar.gz
-        sha256: 199c0e3524942d7c2934896f3fc4d2fa1390db701a4f08975b792ada34934a39
+      - type: git
+        url: https://github.com/flacon/alacenc.git
+        tag: v0.3.0
+        commit: b09b32a969ba9ad502ca045169d73463f293b077
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
 
   # Issue has been submitted upstream to replace faac with fdk-aac
   # https://github.com/flacon/flacon/issues/117
