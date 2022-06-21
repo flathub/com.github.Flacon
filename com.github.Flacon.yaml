@@ -205,8 +205,8 @@ modules:
       - -DFLATPAK_BUNDLE=YES
     sources:
       - type: archive
-        url: https://github.com/flacon/flacon/archive/v9.0.0.tar.gz
-        sha256: a83d5fe297ceb6408b7f63c56a6be336fe1c6d06ebedcc0c84a3f7dd234140e4
+        url: https://github.com/flacon/flacon/archive/v9.1.0.tar.gz
+        sha256: 640b3baf3940ab58034afa9eba7024d7db20971cc78c8cb672111bdaa9a3a11d
         x-checker-data:
           type: anitya
           project-id: 8408
