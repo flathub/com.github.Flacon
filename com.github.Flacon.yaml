@@ -37,7 +37,7 @@ cleanup:
 modules:
 
   - name: alacenc
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     sources:
       - type: git
         url: https://github.com/flacon/alacenc.git
@@ -173,7 +173,7 @@ modules:
   - shared-modules/mac/mac.json
 
   - name: taglib
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     sources:
       - type: archive
         url: https://taglib.org/releases/taglib-1.13.tar.gz
@@ -184,7 +184,7 @@ modules:
           url-template: https://taglib.org/releases/taglib-$version.tar.gz
 
   - name: uchardet
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     config-opts:
       - -DBUILD_BINARY=NO
       - -DBUILD_STATIC=NO
@@ -198,7 +198,7 @@ modules:
           url-template: https://www.freedesktop.org/software/uchardet/releases/uchardet-$version.tar.xz
 
   - name: flacon
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     config-opts:
       # Removes certain features that make no sense within Flatpak,
       # like the option to select audio libraries
