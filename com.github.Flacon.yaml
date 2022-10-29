@@ -37,7 +37,7 @@ cleanup:
 modules:
 
   - name: alacenc
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     sources:
       - type: git
         url: https://github.com/flacon/alacenc.git
@@ -55,10 +55,6 @@ modules:
       - type: archive
         url: https://sourceforge.net/projects/faac/files/faac-src/faac-1.30/faac-1_30.tar.gz
         sha256: adc387ce588cca16d98c03b6ec1e58f0ffd9fc6eadb00e254157d6b16203b2d2
-        x-checker-data:
-          type: anitya
-          project-id: 13754
-          url-template: https://sourceforge.net/projects/faac/files/faac-src/faac-$version/faac-$version.tar.gz
 
   - name: vorbis-tools
     buildsystem: autotools
@@ -173,18 +169,18 @@ modules:
   - shared-modules/mac/mac.json
 
   - name: taglib
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://taglib.org/releases/taglib-1.12.tar.gz
-        sha256: 7fccd07669a523b07a15bd24c8da1bbb92206cb19e9366c3692af3d79253b703
+        url: https://taglib.org/releases/taglib-1.13.tar.gz
+        sha256: 58f08b4db3dc31ed152c04896ee9172d22052bc7ef12888028c01d8b1d60ade0
         x-checker-data:
           type: anitya
           project-id: 1982
           url-template: https://taglib.org/releases/taglib-$version.tar.gz
 
   - name: uchardet
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     config-opts:
       - -DBUILD_BINARY=NO
       - -DBUILD_STATIC=NO
@@ -198,7 +194,7 @@ modules:
           url-template: https://www.freedesktop.org/software/uchardet/releases/uchardet-$version.tar.xz
 
   - name: flacon
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     config-opts:
       # Removes certain features that make no sense within Flatpak,
       # like the option to select audio libraries
