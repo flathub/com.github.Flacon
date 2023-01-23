@@ -136,22 +136,6 @@ modules:
           project-id: 4858
           url-template: https://sourceforge.net/projects/sox/files/sox/$version/sox-$version.tar.bz2
 
-  - shared-modules/vorbisgain/vorbisgain_0.37-2.json
-
-  - name: mp3gain
-    buildsystem: simple
-    build-commands:
-      - make OSTYPE=linux
-      - install -m 755 mp3gain /app/bin
-    sources:
-      - type: archive
-        url: http://downloads.sourceforge.net/mp3gain/mp3gain-1_6_2-src.zip
-        sha256: 5cc04732ef32850d5878b28fbd8b85798d979a025990654aceeaa379bcc9596d
-        x-checker-data:
-          type: anitya
-          project-id: 12077
-          url-template: http://downloads.sourceforge.net/mp3gain/mp3gain-$version-src.zip
-
   - name: ttaenc
     buildsystem: simple
     build-commands:
@@ -201,8 +185,8 @@ modules:
       - -DFLATPAK_BUNDLE=YES
     sources:
       - type: archive
-        url: https://github.com/flacon/flacon/archive/v9.5.1.tar.gz
-        sha256: d0d1547c65e80c396d9f60abdc548a10591c489d27c935620afc8f5f868759a8
+        url: https://github.com/flacon/flacon/archive/v10.0.0.tar.gz
+        sha256: f08bc2744e1d27de810e288dc20fdf2bf7149a33c695a677ab8bec075bcd7675
         x-checker-data:
           type: anitya
           project-id: 8408
