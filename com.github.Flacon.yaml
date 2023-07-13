@@ -192,3 +192,10 @@ modules:
           project-id: 8408
           url-template: https://github.com/flacon/flacon/archive/v$version.tar.gz
 
+  - name: flacon-progs
+    buildsystem: simple
+    build-commands:
+      - ln -s /usr/bin/flac /app/bin/flac
+      - ln -s /usr/bin/lame /app/bin/lame
+      - ln -s /usr/bin/wavpack /app/bin/wavpack
+      - ln -s /usr/bin/wvunpack /app/bin/wvunpack
