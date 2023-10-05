@@ -41,8 +41,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/flacon/alacenc.git
-        tag: v0.3.0
-        commit: b09b32a969ba9ad502ca045169d73463f293b077
+        tag: v0.4.0
+        commit: 00b191a8a34d13979935dc02fe090071989e3f1f
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
