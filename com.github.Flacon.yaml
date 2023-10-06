@@ -41,8 +41,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/flacon/alacenc.git
-        tag: v0.3.0
-        commit: b09b32a969ba9ad502ca045169d73463f293b077
+        tag: v0.4.0
+        commit: 00b191a8a34d13979935dc02fe090071989e3f1f
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -185,8 +185,8 @@ modules:
       - -DFLATPAK_BUNDLE=YES
     sources:
       - type: archive
-        url: https://github.com/flacon/flacon/archive/v11.2.0.tar.gz
-        sha256: 5009025a1f3b3f5829631578d9a4985efded85cdf754f1c1594cf3d41f3890a7
+        url: https://github.com/flacon/flacon/archive/v11.3.0.tar.gz
+        sha256: af8e90362ef2b2f1f1a0978b7d7ff7977e5875993579d2df793813e04d4cb31d
         x-checker-data:
           type: anitya
           project-id: 8408
