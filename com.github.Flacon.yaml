@@ -152,7 +152,9 @@ modules:
 
   - shared-modules/mac/mac.json
 
+  # requirement for taglib 2, which we'll need in the future
   - name: utfcpp
+    disabled: true
     buildsystem: cmake-ninja
     sources:
       - type: archive
@@ -163,16 +165,19 @@ modules:
           project-id: 20545
           url-template: https://github.com/nemtrif/utfcpp/archive/refs/tags/v$version.tar.gz
 
+  # Taglib 2 crashes when converting .flac disk with .cue, to .alac files
   - name: taglib
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://taglib.org/releases/taglib-2.0.tar.gz
-        sha256: e36ea877a6370810b97d84cf8f72b1e4ed205149ab3ac8232d44c850f38a2859
+        url: https://taglib.org/releases/taglib-1.13.1.tar.gz
+        sha256: c8da2b10f1bfec2cd7dbfcd33f4a2338db0765d851a50583d410bacf055cfd0b
         x-checker-data:
           type: anitya
           project-id: 1982
           url-template: https://taglib.org/releases/taglib-$version.tar.gz
+          versions:
+            <: '2'
 
   - name: uchardet
     buildsystem: cmake-ninja
