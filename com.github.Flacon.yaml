@@ -152,17 +152,6 @@ modules:
 
   - shared-modules/mac/mac.json
 
-  - name: taglib
-    buildsystem: cmake-ninja
-    sources:
-      - type: archive
-        url: https://taglib.org/releases/taglib-2.0.tar.gz
-        sha256: e36ea877a6370810b97d84cf8f72b1e4ed205149ab3ac8232d44c850f38a2859
-        x-checker-data:
-          type: anitya
-          project-id: 1982
-          url-template: https://taglib.org/releases/taglib-$version.tar.gz
-
   - name: utfcpp
     buildsystem: cmake-ninja
     sources:
@@ -173,6 +162,17 @@ modules:
           type: anitya
           project-id: 20545
           url-template: https://github.com/nemtrif/utfcpp/archive/refs/tags/v$version.tar.gz
+
+  - name: taglib
+    buildsystem: cmake-ninja
+    sources:
+      - type: archive
+        url: https://taglib.org/releases/taglib-2.0.tar.gz
+        sha256: e36ea877a6370810b97d84cf8f72b1e4ed205149ab3ac8232d44c850f38a2859
+        x-checker-data:
+          type: anitya
+          project-id: 1982
+          url-template: https://taglib.org/releases/taglib-$version.tar.gz
 
   - name: uchardet
     buildsystem: cmake-ninja
