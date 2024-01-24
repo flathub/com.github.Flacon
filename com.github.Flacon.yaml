@@ -1,6 +1,6 @@
 app-id: com.github.Flacon
 runtime: org.kde.Platform
-runtime-version: 5.15-22.08
+runtime-version: 5.15-23.08
 sdk: org.kde.Sdk
 command: flacon
 
@@ -152,6 +152,20 @@ modules:
 
   - shared-modules/mac/mac.json
 
+  # requirement for taglib 2, which we'll need in the future
+  - name: utfcpp
+    disabled: true
+    buildsystem: cmake-ninja
+    sources:
+      - type: archive
+        url: https://github.com/nemtrif/utfcpp/archive/refs/tags/v4.0.5.tar.gz
+        sha256: ffc668a310e77607d393f3c18b32715f223da1eac4c4d6e0579a11df8e6b59cf
+        x-checker-data:
+          type: anitya
+          project-id: 20545
+          url-template: https://github.com/nemtrif/utfcpp/archive/refs/tags/v$version.tar.gz
+
+  # Taglib 2 crashes when converting .flac disk with .cue, to .alac files
   - name: taglib
     buildsystem: cmake-ninja
     sources:
@@ -162,6 +176,8 @@ modules:
           type: anitya
           project-id: 1982
           url-template: https://taglib.org/releases/taglib-$version.tar.gz
+          versions:
+            <: '2'
 
   - name: uchardet
     buildsystem: cmake-ninja
