@@ -128,6 +128,8 @@ modules:
       - --with-sndfile=no
       - --with-wavpack=yes
     sources:
+      - type: patch
+        path: patches/sox-build.patch
       - type: archive
         url: https://sourceforge.net/projects/sox/files/sox/14.4.2/sox-14.4.2.tar.bz2
         sha256: 81a6956d4330e75b5827316e44ae381e6f1e8928003c6aa45896da9041ea149c
