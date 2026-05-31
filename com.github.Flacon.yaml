@@ -31,8 +31,8 @@ cleanup:
   - /lib/pkgconfig
   - /share/doc
   - /share/man
-  - "*.la"
-  - "*.a"
+  - '*.la'
+  - '*.a'
 
 modules:
 
@@ -43,8 +43,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/flacon/alacenc.git
-        tag: v0.4.1
-        commit: 9dcfb54438822c0955da98077f63e36ce3d19dd8
+        tag: v0.4.2
+        commit: 7001898ad75bf4680a7da98e84c34ddf5b413cec
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -162,8 +162,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/nemtrif/utfcpp/archive/refs/tags/v4.0.9.tar.gz
-        sha256: 397a9a2a6ed5238f854f490b0177b840abc6b62571ec3e07baa0bb94d3f14d5a
+        url: https://github.com/nemtrif/utfcpp/archive/refs/tags/v4.1.1.tar.gz
+        sha256: 1ca68016f0abc24172998e39ce0d8f8e2b7a26f7579a0ff85d4e1b9a7aea56f8
         x-checker-data:
           type: anitya
           project-id: 20545
@@ -208,8 +208,8 @@ modules:
       - -DFLATPAK_BUNDLE=YES
     sources:
       - type: archive
-        url: https://github.com/flacon/flacon/archive/v12.0.0.tar.gz
-        sha256: 78199ff925b7cd0ffeb628d47909ca4172f8ff0d8fd8192bb537e0c012e6f4c6
+        url: https://github.com/flacon/flacon/archive/v13.0.1.tar.gz
+        sha256: e275686b0daee87c9e016777cb38ebc88275d0108d07693b17e37bc182e36848
         x-checker-data:
           type: anitya
           project-id: 8408
