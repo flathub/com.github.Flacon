@@ -31,8 +31,8 @@ cleanup:
   - /lib/pkgconfig
   - /share/doc
   - /share/man
-  - "*.la"
-  - "*.a"
+  - '*.la'
+  - '*.a'
 
 modules:
 
@@ -43,8 +43,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/flacon/alacenc.git
-        tag: v0.4.1
-        commit: 9dcfb54438822c0955da98077f63e36ce3d19dd8
+        tag: v0.4.2
+        commit: 7001898ad75bf4680a7da98e84c34ddf5b413cec
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
